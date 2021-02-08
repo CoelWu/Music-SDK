@@ -98,7 +98,6 @@ namespace Music.SDK.Provider
                     Songs = songItems
                 };
                 playListItems.Add(playListItem);
-                songItems.Clear();
             }
 
             return playListItems[0];

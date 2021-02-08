@@ -113,7 +113,7 @@ namespace Music.SDK.Provider
 
             List<SongItem> songItems = new List<SongItem>();
             var obj = JObject.Parse(data);
-            foreach (var song in obj["tracks"])
+            foreach (var song in obj["playlist"]["tracks"])
             {
                 long songId = (long)song["id"];
                 SongItem songItem = new SongItem
@@ -136,7 +136,7 @@ namespace Music.SDK.Provider
 
             PlayListItem playListItem = new PlayListItem
             {
-                PlayListId = (long)obj["platlist"]["id"],
+                PlayListId = (long)obj["playlist"]["id"],
                 PlayListName = (string)obj["playlist"]["name"],
                 PlayListDesc = (string)obj["playlist"]["description"],
                 PlayListAuthor = (string)obj["playlist"]["creator"]["nickname"],

@@ -17,7 +17,7 @@
     <Description>C# 实现国内音乐平台API
 支持: QQ音乐, 网易云音乐, 酷狗音乐, 酷我音乐, 哔哩哔哩音乐</Description>
     <PackageIcon>Music_icon.png</PackageIcon>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
