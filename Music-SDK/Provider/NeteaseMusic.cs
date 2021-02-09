@@ -75,7 +75,7 @@ namespace Music.SDK.Provider
                 SongItem songItem = new SongItem
                 {
                     SongPlatform = PlatformType.NeteaseMusic,
-                    SongUrl = $"http://music.163.com/#/song?id={songId}",
+                    SongUrl = $"https://music.163.com/#/song?id={songId}",
                     SongId = songId,
                     SongGId = Convert.ToString(songId),
                     SongName = (string)song["name"],
@@ -94,22 +94,10 @@ namespace Music.SDK.Provider
 
         public async Task<PlayListItem> GetPlayList(long id)
         {
-            string url = "http://music.163.com/weapi/v3/playlist/detail";
+            string url = $"https://music.163.com/api/v6/playlist/detail?id={id}";
             httpClient = headerHacker.ApplyHeader(url, httpClient);
 
-            var postData = new
-            {
-                id = id,
-                offset = 0,
-                total = true,
-                limit = 1000,
-                n = 1000,
-                csrf_token = ""
-            };
-            var dict = EncryptRequest(postData);
-
-            var req = new HttpRequestMessage(HttpMethod.Post, url) { Content = new FormUrlEncodedContent(dict) };
-            string data = await httpClient.SendAsync(req).Result.Content.ReadAsStringAsync();
+            string data = await httpClient.GetAsync(url).Result.Content.ReadAsStringAsync();
 
             List<SongItem> songItems = new List<SongItem>();
             var obj = JObject.Parse(data);
@@ -119,7 +107,7 @@ namespace Music.SDK.Provider
                 SongItem songItem = new SongItem
                 {
                     SongPlatform = PlatformType.NeteaseMusic,
-                    SongUrl = $"http://music.163.com/#/song?id={songId}",
+                    SongUrl = $"https://music.163.com/#/song?id={songId}",
                     SongId = songId,
                     SongGId = Convert.ToString(songId),
                     SongName = (string)song["name"],
