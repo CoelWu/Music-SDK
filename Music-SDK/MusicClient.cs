@@ -15,6 +15,8 @@ namespace Music_SDK
         internal KuWoMusic kuWoMusic;
         internal KuGouMusic kuGouMusic;
         internal BiliBiliMusic biliMusic;
+        internal QianQianMusic qianMusic;
+
         public MusicClient()
         {
             qqMusic = new QQMusic();
@@ -22,6 +24,7 @@ namespace Music_SDK
             kuWoMusic = new KuWoMusic();
             kuGouMusic = new KuGouMusic();
             biliMusic = new BiliBiliMusic();
+            qianMusic = new QianQianMusic();
         }
 
         public async Task<List<SongItem>> SearchSong(PlatformType platform, string name)
@@ -38,6 +41,8 @@ namespace Music_SDK
                     return await kuGouMusic.SearchSong(name);
                 case PlatformType.BiliBiliMusic:
                     return await biliMusic.SearchSong(name);
+                case PlatformType.QianQianMusic:
+                    return await qianMusic.SearchSong(name);
                 default:
                     return null;
             }
@@ -57,6 +62,8 @@ namespace Music_SDK
                     return await kuGouMusic.GetPlayList(id);
                 case PlatformType.BiliBiliMusic:
                     return await biliMusic.GetPlayList(id);
+                case PlatformType.QianQianMusic:
+                    return await qianMusic.GetPlayList(id);
                 default:
                     return null;
             }
@@ -76,6 +83,8 @@ namespace Music_SDK
                     return await kuGouMusic.GetLyric(song);
                 case PlatformType.BiliBiliMusic:
                     return await biliMusic.GetLyric(song);
+                case PlatformType.QianQianMusic:
+                    return await qianMusic.GetLyric(song);
                 default:
                     return null;
             }
@@ -95,6 +104,8 @@ namespace Music_SDK
                     return await kuGouMusic.GetLyricById(id, albumId);
                 case PlatformType.BiliBiliMusic:
                     return await biliMusic.GetLyricById(id);
+                case PlatformType.QianQianMusic:
+                    return await qianMusic.GetLyricById(id);
                 default:
                     return null;
             }
@@ -114,6 +125,8 @@ namespace Music_SDK
                     return await kuGouMusic.GetSongPlayUrl(song);
                 case PlatformType.BiliBiliMusic:
                     return await biliMusic.GetSongPlayUrl(song);
+                case PlatformType.QianQianMusic:
+                    return await qianMusic.GetSongPlayUrl(song);
                 default:
                     return null;
             }

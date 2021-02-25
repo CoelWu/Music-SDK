@@ -1,5 +1,6 @@
 ﻿using Music.SDK.Models;
 using Music.SDK.Models.Enums;
+using Music.SDK.Provider;
 using Music_SDK;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace MusicSDK_ConsoleApp
             //music.GetSongPlayUrl(new Music.SDK.Models.SongItem { SongFileHash = "D3ED05ADA906113520BE598E784C038E", SongAlbumId = 40693398 });
             // 测试B站音乐，歌曲名 = 处处零
             //music.GetSongPlayUrl(new Music.SDK.Models.SongItem { SongId = 1438481 });
+            // 测试千千音乐，歌曲名 = 雅俗共赏
+            //music.GetSongPlayUrl(new Music.SDK.Models.SongItem { SongId = 10038929666 });
         }
     }
 }

@@ -17,5 +17,9 @@ namespace Music.SDK.Models.Enums
         KuWoMusic,
 
         BiliBiliMusic,
+
+        QianQianMusic,
+
+        MiGuMusic
     }
 }

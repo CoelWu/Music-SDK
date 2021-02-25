@@ -49,5 +49,15 @@ namespace Music.SDK.Provider
             var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
             return httpContent;
         }
+
+        internal string ConvertToQuery(Dictionary<string, string> parameters)
+        {
+            string query = string.Empty;
+            if (parameters != null && parameters.Count > 0)
+            {
+                query = "?" + string.Join("&", parameters.Select(p => p.Key + "=" + WebUtility.UrlEncode(p.Value)));
+            }
+            return query;
+        }
     }
 }
